@@ -1,0 +1,25 @@
+% ====================== _config.tex ======================
+% Document Configuration and Global Parameters
+% ----------------------------------------------------------
+
+% -------------------- Document Metadata --------------------
+\def\myTitle{Document Title}                           % Document title
+\def\myAuthor{Author Name}                             % Author name
+\def\myDate{\today}                                    % Date
+
+% -------------------- Abstract and Keywords --------------------
+\def\myAbstract{                                       % Abstract content
+    This is the abstract of the document. Replace this text with your actual abstract content. You can write multiple paragraphs here to describe your work comprehensively.
+}
+\def\myKeywords{keyword1; keyword2; keyword3; keyword4}          % Keywords (semicolon-separated)
+
+% -------------------- Import Global Packages --------------------
+\input{\path/package.tex}                              % Package loading
+
+% -------------------- Import Environment Configurations --------------------
+\input{\path/environments/theorem.tex}                 % Theorem environments
+\input{\path/environments/code.tex}                    % Code environments
+% \input{\path/environments/figure.tex}                  % Figure environments
+\input{\path/environments/custom.tex}                  % Custom text environments
+
+% ====================== End of _config.tex ======================

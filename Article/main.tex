@@ -1,0 +1,74 @@
+% ======================== main.tex ========================
+% Main control file: Entry point for the entire document
+% ----------------------------------------------------------
+% Define \allfiles to control chapter-by-chapter compilation
+\def\allfiles{}
+
+% ----------------------------------------------------------
+% Document class
+\documentclass[12pt, a4paper, oneside]{article}
+\usepackage[UTF8, heading=true]{ctex}
+
+% Configure English labels
+\ctexset{
+    contentsname={Contents},
+    abstractname={Abstract}
+}
+
+% Global path variable (easy to modify)
+\def\path{./config}
+
+% Import global configuration (fonts, packages, environments, etc.)
+\input{config/_config}
+
+% ----------------------------------------------------------
+\begin{document}
+
+% Title page
+\input{config/titlepage}
+
+% Abstract and keywords
+\pagenumbering{roman} % Start with Roman numerals
+\input{config/abstract}
+
+% Table of contents
+\newpage
+\tableofcontents
+\clearpage
+
+% ======================== Main Content ========================
+\pagenumbering{arabic} % Switch to Arabic numerals
+\input{Chapters/chapter1/chap1.tex}
+\input{Chapters/chapter2/chap2.tex}
+% ...
+
+% ======================== Appendices (Optional) =====================
+\appendix % Switch to appendix mode
+\input{Appendix/Code/code}                 % Include code appendix
+% \input{Appendix/Data/data}                 % Include data appendix
+% \input{Appendix/Proofs/proofs}             % Include proofs appendix
+\input{Appendix/Supplementary/supplementary} % Include supplementary materials
+
+% ======================== Bibliography (Optional) ================
+\clearpage % Ensure bibliography starts on a new page
+\phantomsection % For hyperref package to correctly set bibliography links
+\addcontentsline{toc}{section}{References} % Add bibliography to table of contents
+
+% Configure bibliography heading to use English
+\renewcommand{\refname}{References}
+
+\bibliographystyle{plain} % Choose bibliography style
+\bibliography{References/Books/books.bib} % Include book references
+
+% \clearpage % Ensure bibliography starts on a new page
+% \phantomsection
+% \addcontentsline{toc}{section}{Papers}
+% \bibliography{References/Papers/papers.bib}
+
+% \clearpage
+% \phantomsection
+% \addcontentsline{toc}{section}{Websites}
+% \bibliography{References/Websites/websites}
+
+\end{document}
+% ====================== End of main.tex ====================

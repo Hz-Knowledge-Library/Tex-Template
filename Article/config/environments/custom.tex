@@ -1,0 +1,42 @@
+% ======================
+%  Custom Styles and Environments
+% ======================
+
+% ---------- Color Definitions ----------
+\usepackage{xcolor}
+\definecolor{highlightcolor}{RGB}{255,230,179} % Light yellow highlight
+\definecolor{myred}{RGB}{204,26,26}           % Emphasis text
+
+% ---------- Text Styles ----------
+\usepackage[normalem]{ulem}          % Wave underline \uwave
+\newcommand{\hl}[1]{\colorbox{highlightcolor}{#1}}
+% \newcommand{\uline}[1]{\underline{#1}}
+\newcommand{\wline}[1]{\uwave{#1}}
+\newcommand{\myemph}[1]{\textcolor{myred}{#1}}
+
+% ---------- Hyperlinks ----------
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks   = true,
+    linkcolor    = black,
+    citecolor    = black,
+    urlcolor     = blue,
+    filecolor    = magenta,
+    pdfstartview = Fit,
+    breaklinks   = true
+}
+
+% ---------- Line Spacing ----------
+\usepackage{setspace}
+\onehalfspacing                    % 1.5x line spacing
+\setlength{\headheight}{14.5pt}   % fancyhdr recommended value
+
+% ---------- Image Search Paths ----------
+\usepackage{graphicx}
+\graphicspath{%
+  {config/cover/}%
+  {Chapters/chapter1/images/}%
+  {Chapters/chapter2/images/}%
+  {Chapters/chapter3/images/}%
+  {images/}%
+}

@@ -1,0 +1,345 @@
+% ======================
+% Enhanced Code Block Styling (listings-based)
+% ======================
+
+% Color definitions for modern code blocks
+\definecolor{codebg}{RGB}{248,249,250}           % Light gray background
+\definecolor{codeframe}{RGB}{206,212,218}        % Border color
+\definecolor{linenumbg}{RGB}{233,236,239}        % Line number background
+\definecolor{linenumfg}{RGB}{108,117,125}        % Line number text
+\definecolor{keywordcolor}{RGB}{215,58,73}       % Keywords (red)
+\definecolor{commentcolor}{RGB}{106,153,85}      % Comments (green)
+\definecolor{stringcolor}{RGB}{3,102,214}        % Strings (blue)
+\definecolor{functioncolor}{RGB}{111,66,193}     % Functions (purple)
+
+% Global listings configuration with enhanced styling
+\lstset{
+  basicstyle=\small\ttfamily,                      % Base font: small monospace
+  backgroundcolor=\color{codebg},                  % Background color
+  frame=single,                                    % Single frame border
+  framesep=8pt,                                    % Frame separation
+  rulecolor=\color{codeframe},                     % Frame color
+  framerule=1pt,                                   % Frame thickness
+  %
+  numbers=left,                                    % Line numbers on left
+  numberstyle=\tiny\color{linenumfg}\ttfamily,    % Line number style
+  numbersep=12pt,                                  % Space between numbers and code
+  stepnumber=1,                                    % Number every line
+  firstnumber=1,                                   % Start numbering at 1
+  %
+  tabsize=4,                                       % Tab size
+  showspaces=false,                                % Don't show spaces
+  showstringspaces=false,                          % Don't show spaces in strings
+  showtabs=false,                                  % Don't show tabs
+  breaklines=true,                                 % Auto line breaking
+  breakatwhitespace=false,                         % Break anywhere
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}, % Line break indicator
+  %
+  keywordstyle=\color{keywordcolor}\bfseries,     % Keyword style
+  commentstyle=\color{commentcolor}\itshape,      % Comment style
+  stringstyle=\color{stringcolor},                % String style
+  identifierstyle=\color{black},                  % Identifier style
+  %
+  captionpos=b,                                    % Caption at bottom
+  xleftmargin=20pt,                                % Left margin
+  xrightmargin=10pt,                               % Right margin
+  framexleftmargin=15pt,                           % Frame left margin
+  framexrightmargin=5pt,                           % Frame right margin
+  keepspaces=true,                                 % Keep spaces
+  columns=flexible,                                % Flexible columns
+  escapeinside={(*@}{@*)},                         % Escape to LaTeX
+  aboveskip=1.5em,                                 % Space above
+  belowskip=1.5em                                  % Space below
+}
+
+
+% ======================
+% Language Definitions
+% ======================
+
+% --- Python ---
+\lstdefinelanguage{Python}{
+  keywords={False,None,True,and,as,assert,async,await,break,class,continue,def,
+            del,elif,else,except,finally,for,from,global,if,import,in,is,lambda,
+            nonlocal,not,or,pass,raise,return,try,while,with,yield},
+  keywords=[2]{self,cls,__init__,__name__,__main__},
+  keywords=[3]{print,input,len,str,int,float,list,dict,set,tuple,range},
+  sensitive=true,
+  comment=[l]{\#},
+  morecomment=[s]{"""}{"""},
+  morecomment=[s]{'''}{'''},
+  string=[b]',
+  string=[b]",
+  morestring=[s]{r'}{'},
+  morestring=[s]{r"}{"}
+}
+
+% --- JavaScript ---
+\lstdefinelanguage{JavaScript}{
+  keywords={break,case,catch,class,const,continue,debugger,default,delete,do,
+            else,export,extends,finally,for,function,if,import,in,instanceof,
+            let,new,return,super,switch,this,throw,try,typeof,var,void,while,with,yield},
+  keywords=[2]{async,await,from,of},
+  keywords=[3]{console,document,window,Array,Object,String,Number,Boolean},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  string=[b]',
+  string=[b]",
+  string=[b]`
+}
+
+% --- Java ---
+\lstdefinelanguage{Java}{
+  keywords={abstract,assert,boolean,break,byte,case,catch,char,class,const,
+            continue,default,do,double,else,enum,extends,final,finally,float,
+            for,goto,if,implements,import,instanceof,int,interface,long,native,
+            new,package,private,protected,public,return,short,static,strictfp,
+            super,switch,synchronized,this,throw,throws,transient,try,void,
+            volatile,while},
+  keywords=[2]{String,System,Math,Integer,Double,Boolean,ArrayList,HashMap},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  string=[b]',
+  string=[b]"
+}
+
+% --- C++ ---
+\lstdefinelanguage{C++}{
+  keywords={alignas,alignof,and,and_eq,asm,auto,bitand,bitor,bool,break,case,
+            catch,char,char16_t,char32_t,class,compl,const,constexpr,const_cast,
+            continue,decltype,default,delete,do,double,dynamic_cast,else,enum,
+            explicit,export,extern,false,float,for,friend,goto,if,inline,int,
+            long,mutable,namespace,new,noexcept,not,not_eq,nullptr,operator,or,
+            or_eq,private,protected,public,register,reinterpret_cast,return,
+            short,signed,sizeof,static,static_assert,static_cast,struct,switch,
+            template,this,thread_local,throw,true,try,typedef,typeid,typename,
+            union,unsigned,using,virtual,void,volatile,wchar_t,while,xor,xor_eq},
+  keywords=[2]{std,cout,cin,endl,vector,string,map,set},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  string=[b]',
+  string=[b]"
+}
+
+% --- MATLAB ---
+\lstdefinelanguage{Matlab}{
+  keywords={break,case,catch,classdef,continue,else,elseif,end,for,function,
+            global,if,otherwise,parfor,persistent,return,spmd,switch,try,while},
+  keywords=[2]{pi,eps,inf,nan,ans},
+  keywords=[3]{plot,sin,cos,exp,log,mean,std},
+  sensitive=false,
+  comment=[l]{\%},
+  morecomment=[s]{\%\{}{\%\}},
+  string=[b]',
+  string=[b]"
+}
+
+% --- C ---
+\lstdefinelanguage{C}{
+  keywords={auto,break,case,char,const,continue,default,do,double,else,enum,
+            extern,float,for,goto,if,inline,int,long,register,restrict,return,
+            short,signed,sizeof,static,struct,switch,typedef,union,unsigned,
+            void,volatile,while,_Bool,_Complex,_Imaginary},
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  string=[b]',
+  string=[b]",
+  alsoletter=\#,
+  morekeywords=[2]{printf,scanf,malloc,free,sizeof}
+}
+
+% --- R ---
+\lstdefinelanguage{R}{
+  keywords={function,if,in,else,for,while,repeat,break,next,return,switch,
+            try,tryCatch,stop,warning,require,library,attach,detach,source},
+  keywords=[2]{c,matrix,data.frame,list,vector,array,table},
+  keywords=[3]{mean,sd,plot,hist,lm,glm},
+  sensitive=true,
+  comment=[l]{\#},
+  string=[b]',
+  string=[b]",
+  otherkeywords={!,!=,~,$,*,\&,\%/\%,\%*\%,\%\%,<-,<<-,->,->>,=,==,>,<,>=,<=}
+}
+
+% --- SQL ---
+\lstdefinelanguage{SQL}{
+  keywords={SELECT,FROM,WHERE,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER,TABLE,
+            DATABASE,INDEX,VIEW,JOIN,INNER,LEFT,RIGHT,OUTER,ON,AS,AND,OR,NOT,
+            NULL,PRIMARY,KEY,FOREIGN,REFERENCES,UNIQUE,DEFAULT,CHECK,ORDER,BY,
+            GROUP,HAVING,LIMIT,OFFSET,UNION,INTERSECT,EXCEPT},
+  sensitive=false,
+  comment=[l]{--},
+  morecomment=[s]{/*}{*/},
+  string=[b]',
+  string=[b]"
+}
+
+% ======================
+% Enhanced Pseudocode Environment
+% ======================
+
+% Pseudocode color scheme
+\definecolor{pseudobg}{RGB}{252,252,253}         % Very light background
+\definecolor{pseudoframe}{RGB}{139,92,246}       % Purple frame
+\definecolor{pseudotitle}{RGB}{109,40,217}       % Dark purple title
+
+% Custom pseudocode style
+\algrenewcommand\algorithmicrequire{\textbf{Input:}}
+\algrenewcommand\algorithmicensure{\textbf{Output:}}
+\algrenewcommand\algorithmicif{\textbf{if}}
+\algrenewcommand\algorithmicthen{\textbf{then}}
+\algrenewcommand\algorithmicelse{\textbf{else}}
+\algrenewcommand\algorithmicfor{\textbf{for}}
+\algrenewcommand\algorithmicforall{\textbf{for all}}
+\algrenewcommand\algorithmicdo{\textbf{do}}
+\algrenewcommand\algorithmicwhile{\textbf{while}}
+\algrenewcommand\algorithmicrepeat{\textbf{repeat}}
+\algrenewcommand\algorithmicuntil{\textbf{until}}
+\algrenewcommand\algorithmicreturn{\textbf{return}}
+\algrenewcommand\algorithmicfunction{\textbf{function}}
+\algrenewcommand\algorithmicprocedure{\textbf{procedure}}
+
+% Enhanced breakable algorithm environment with tcolorbox
+\newtcolorbox[auto counter, number within=section]{pseudocode}[2][]{
+  enhanced,
+  breakable,
+  colback=pseudobg,
+  colframe=pseudoframe,
+  arc=4pt,
+  boxrule=1.5pt,
+  left=10pt,
+  right=10pt,
+  top=8pt,
+  bottom=8pt,
+  title={\textbf{Algorithm \thetcbcounter:} #2},
+  coltitle=white,
+  fonttitle=\bfseries,
+  colbacktitle=pseudotitle,
+  attach boxed title to top left={yshift=-2mm, xshift=4mm},
+  boxed title style={
+    sharp corners,
+    boxrule=0pt,
+  },
+  #1
+}
+
+% Traditional breakable algorithm environment (alternative)
+\makeatletter
+\newenvironment{breakablealgorithm}
+  {% \begin{breakablealgorithm}
+    \begin{center}
+      \refstepcounter{algorithm}% New algorithm
+      \hrule height.8pt depth0pt \kern4pt% \@fs@pre for \@fs@ruled
+      \parskip 0pt
+      \renewcommand{\caption}[2][\relax]{% Make a new \caption
+        {\raggedright\textbf{\fname@algorithm~\thealgorithm: ##2}\par}%
+        \ifx\relax##1\relax % #1 is \relax
+          \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##2}%
+        \else % #1 is not \relax
+          \addcontentsline{loa}{algorithm}{\protect\numberline{\thealgorithm}##1}%
+        \fi
+        \kern2pt\hrule\kern2pt
+     }
+  }
+  {% \end{breakablealgorithm}
+     \kern2pt\hrule\relax% \@fs@post for \@fs@ruled
+   \end{center}
+  }
+\makeatother
+
+% List of algorithms
+\providecommand{\listofalgorithms}{\listof{algorithm}{List of Algorithms}}
+
+% ======================
+% Custom Code Environments
+% ======================
+\lstnewenvironment{pythoncode}[1][]      {\lstset{language=Python,#1}}{}
+\lstnewenvironment{javascriptcode}[1][]  {\lstset{language=JavaScript,#1}}{}
+\lstnewenvironment{javacode}[1][]        {\lstset{language=Java,#1}}{}
+\lstnewenvironment{cppcode}[1][]         {\lstset{language=C++,#1}}{}
+\lstnewenvironment{matlabcode}[1][]      {\lstset{language=Matlab,#1}}{}
+\lstnewenvironment{ccode}[1][]           {\lstset{language=C,#1}}{}
+\lstnewenvironment{rcode}[1][]           {\lstset{language=R,#1}}{}
+\lstnewenvironment{sqlcode}[1][]         {\lstset{language=SQL,#1}}{}
+
+% ======================
+% Enhanced Code Box Environment (tcolorbox-based)
+% ======================
+
+% Modern code box with copy-friendly styling
+\newtcblisting{codebox}[2][]{
+  enhanced,
+  breakable,
+  listing only,
+  listing options={
+    language=#2,
+    basicstyle=\small\ttfamily,
+    keywordstyle=\color{keywordcolor}\bfseries,
+    commentstyle=\color{commentcolor}\itshape,
+    stringstyle=\color{stringcolor},
+    numbers=left,
+    numberstyle=\tiny\color{linenumfg}\ttfamily,
+    numbersep=10pt,
+    breaklines=true,
+    columns=flexible,
+    keepspaces=true,
+    showstringspaces=false,
+    tabsize=4,
+  },
+  colback=codebg,
+  colframe=codeframe,
+  arc=4pt,
+  boxrule=1pt,
+  left=5pt,
+  right=5pt,
+  top=5pt,
+  bottom=5pt,
+  leftrule=3pt,
+  #1
+}
+
+% Code box with title
+\newtcblisting{codeboxwithcaption}[3][]{
+  enhanced,
+  breakable,
+  listing only,
+  listing options={
+    language=#2,
+    basicstyle=\small\ttfamily,
+    keywordstyle=\color{keywordcolor}\bfseries,
+    commentstyle=\color{commentcolor}\itshape,
+    stringstyle=\color{stringcolor},
+    numbers=left,
+    numberstyle=\tiny\color{linenumfg}\ttfamily,
+    numbersep=10pt,
+    breaklines=true,
+    columns=flexible,
+    keepspaces=true,
+    showstringspaces=false,
+    tabsize=4,
+  },
+  colback=codebg,
+  colframe=codeframe,
+  arc=4pt,
+  boxrule=1pt,
+  left=5pt,
+  right=5pt,
+  top=5pt,
+  bottom=5pt,
+  leftrule=3pt,
+  title={\texttt{#3}},
+  coltitle=black,
+  fonttitle=\small\ttfamily,
+  colbacktitle=linenumbg,
+  #1
+}
+
+% ======================
+% Utility Commands
+% ======================
+\newcommand{\inlinecode}[1]{\colorbox{codebg}{\ttfamily\small #1}}
+\newcommand{\inputcode}[2][]{\lstinputlisting[language=#1]{#2}}

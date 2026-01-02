@@ -1,0 +1,37 @@
+% ====================== chapter2/chap2.tex ======================
+% Chapter 2: Literature Review
+% Supports both standalone and full document compilation modes
+% ---------------------------------------------------------------
+
+\ifx\allfiles\undefined
+    % ======= Standalone Compilation Mode =======
+    \documentclass{article}
+    \usepackage[UTF8]{ctex}
+
+    % Load global configuration (adjust path according to file structure)
+    \input{../../config/_config.tex}
+
+    % Set temporary title information for standalone compilation
+    \title{Section 2: XXXXXXXXX}
+    \author{\myAuthor}
+    \date{\today}
+
+    \begin{document}
+    \maketitle
+\fi
+
+% ======= Main Content =======
+\section{Literature Review}
+
+This section reviews the relevant literature. The foundational work by Knuth \cite{knuth1984} established the typesetting system that forms the basis of modern document preparation.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ======= End of Standalone Compilation Mode =======
+\ifx\allfiles\undefined
+    \end{document}
+\fi
+% ====================== End of chap2.tex ======================

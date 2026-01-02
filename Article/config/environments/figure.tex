@@ -1,0 +1,29 @@
+% ======================
+% Figure and Float Settings
+% ======================
+
+% ---------- Caption Style ----------
+% Depends on \usepackage{caption} in package.tex
+\captionsetup[figure]{
+  font={small},          % Caption font
+  labelfont={bf},        % Bold label
+  justification=centering % Center alignment
+}
+\captionsetup[table]{
+  font={small},
+  labelfont={bf},
+  justification=centering
+}
+
+% ---------- Custom Float Environments ----------
+% Depends on \usepackage{float} in package.tex
+\newfloat{code}{htbp}{loc} % Define "code" float
+\floatname{code}{Code}     % Float caption name
+
+% ---------- Custom Figure Environments ----------
+\newenvironment{myfigure}[1][]{
+  \begin{figure}[#1]
+  \centering
+}{
+  \end{figure}
+}

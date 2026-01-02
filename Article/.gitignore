@@ -1,0 +1,124 @@
+# LaTeX auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+# Bibliography auxiliary files
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# Build tool auxiliary files
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# Algorithm auxiliary files
+*.alg
+*.loa
+
+# Theorem auxiliary files
+*.thm
+
+# Beamer auxiliary files
+*.nav
+*.pre
+*.snm
+*.vrb
+
+# Hyperref auxiliary files
+*.brf
+
+# Knitr auxiliary files
+*-concordance.tex
+
+# Listings auxiliary files
+*.lol
+
+# Makeindex auxiliary files
+*.idx
+*.ilg
+*.ind
+
+# Minitoc auxiliary files
+*.maf
+*.mlf
+*.mlt
+*.mtc[0-9]*
+*.slf[0-9]*
+*.slt[0-9]*
+*.stc[0-9]*
+
+# Nomenclature auxiliary files
+*.nlg
+*.nlo
+*.nls
+
+# Pax auxiliary files
+*.pax
+
+# Sagetex auxiliary files
+*.sagetex.sage
+*.sagetex.py
+*.sagetex.scmd
+
+# Scrwfile auxiliary files
+*.wrt
+
+# Sympy auxiliary files
+*.sout
+*.sympy
+sympy-plots-for-*.tex/
+
+# TikZ & PGF auxiliary files
+*.dpth
+*.md5
+*.auxlock
+
+# Todonotes auxiliary files
+*.tdo
+
+# Xindy auxiliary files
+*.xdy
+
+# WinEdt backup files
+*.bak
+*.sav
+
+# Backup files
+*~
+*.backup
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Keep the main PDF output (optional - uncomment to ignore PDFs)
+# *.pdf

@@ -1,0 +1,85 @@
+% ======================
+% Theorem and Box Environments
+% Dependencies:
+%   amsthm, amssymb       (theorem, proof environments)
+%   xcolor                (color definitions)
+%   tcolorbox[skins,breakable] (colored boxes)
+% ======================
+
+% ---------- Custom Colors ----------
+\definecolor{greenshade}{rgb}{0.9, 1, 0.9}
+\definecolor{green}{rgb}{0.2, 0.6, 0.2}
+\definecolor{axmBack}{rgb}{0.95, 0.95, 1}
+\definecolor{axmFrame}{rgb}{0.5, 0.5, 1}
+\definecolor{axmTitle}{rgb}{0.2, 0.2, 0.6}
+\definecolor{lightblue}{rgb}{0.8, 0.9, 1}
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{lightyellow}{rgb}{1, 0.98, 0.9}
+\definecolor{lightcyan}{rgb}{0.9, 1, 1}
+\definecolor{SkyBlue}{rgb}{0.2,0.6,1}
+
+% ---------- amsthm Styles ----------
+% Italic style (theorem, lemma, proposition, corollary)
+\newtheoremstyle{mythm}
+  {\topsep}{\topsep}{\itshape}{}{\bfseries}{.}{.5em}{}
+\theoremstyle{mythm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{axiom}{Axiom}[section]
+
+% Normal style (definition, example, remark)
+\newtheoremstyle{mydef}
+  {\topsep}{\topsep}{\upshape}{}{\bfseries}{.}{.5em}{}
+\theoremstyle{mydef}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{remark}{Remark}[section]
+
+% ---------- Custom Proof and Solution Environments ----------
+\renewenvironment{proof}{\indent\textcolor{SkyBlue}{\textbf{Proof.}}\;}{\qed\par}
+\newenvironment{solution}{\indent\textcolor{SkyBlue}{\textbf{Solution.}}\;}{\qed\par}
+
+% ---------- tcolorbox Custom Environments ----------
+% Definition box
+\newtcolorbox[auto counter, number within=section, list inside=mydefbox]{defn}[1][]{
+  enhanced, breakable,
+  colback=greenshade, colframe=green, arc=3mm,
+  title={\textbf{Definition \thetcbcounter\ #1}},
+  coltitle=black, fonttitle=\bfseries
+}
+
+% Axiom box
+\newtcolorbox[auto counter, number within=section]{axiombox}[1][]{
+  enhanced, breakable,
+  colback=axmBack, colframe=axmFrame, arc=3mm,
+  title={\textbf{Axiom \thetcbcounter\ #1}},
+  coltitle=axmTitle, fonttitle=\bfseries,
+}
+
+% Notice box
+\newtcolorbox{Notice}[1][Notice]{
+  colback=lightblue, colframe=black, arc=3mm,
+  title={\textbf{#1}}, coltitle=white, fonttitle=\bfseries
+}
+
+% Proof box
+\newtcolorbox{Proof}{
+  colback=lightgray, colframe=black, arc=3mm,
+  title={\textbf{Proof}}, coltitle=black, fonttitle=\bfseries
+}
+
+% Derivation box
+\newtcolorbox{Derivation}[1][]{
+  enhanced, breakable,
+  colback=lightyellow, colframe=black, arc=3mm,
+  title={\textbf{Derivation}}, coltitle=white, fonttitle=\bfseries,
+  boxsep=2mm, #1
+}
+
+% Example box
+\newtcolorbox{examplebox}[1][Example]{
+  colback=lightcyan, colframe=black, arc=3mm,
+  title={\textbf{#1}}, coltitle=black, fonttitle=\bfseries
+}
